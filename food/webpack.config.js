@@ -78,7 +78,6 @@ module.exports = {
             remotes: {},
             exposes: {
                 './Foods': './src/components/Foods.svelte',
-                './Foods.ext': './src/components/Foods.ext.ts',
             },
             shared: require('./package.json').dependencies,
         })
