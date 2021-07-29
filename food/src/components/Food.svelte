@@ -5,16 +5,10 @@
 
     export let id: number;
     $: foodRequest = getById(id);
-    const dispatch = createEventDispatcher();
-
-    const click = () => {
-        console.log(`click on ${id}`);
-        dispatch('test', id);
-    }
 </script>
 
 <div class="card" role="button">
-    <div class="card-body" on:click={click}>
+    <div class="card-body">
         {#await foodRequest}
             <Spinner/>
         {:then training}
