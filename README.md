@@ -1,1 +1,1 @@
-This is not a working example, it just demonstrates a issue with svelte and module federation 
+This is not a working example, it just demonstrates an issue with svelte and module federation 
