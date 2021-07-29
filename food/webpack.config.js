@@ -2,6 +2,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const path = require('path');
 const sveltePreprocess = require('svelte-preprocess');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const mode = process.env.NODE_ENV || 'development';
 const prod = mode === 'production';
@@ -80,7 +81,10 @@ module.exports = {
                 './Foods': './src/components/Foods.svelte',
             },
             shared: require('./package.json').dependencies,
-        })
+        }),
+        new HtmlWebpackPlugin({
+            template: "./public/index.html",
+        }),
     ],
     devtool: prod ? false : 'source-map',
     devServer: {

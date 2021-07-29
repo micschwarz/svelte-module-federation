@@ -1,8 +1,8 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require('path');
 const sveltePreprocess = require('svelte-preprocess');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const mode = process.env.NODE_ENV || 'development';
 const prod = mode === 'production';
@@ -74,13 +74,12 @@ module.exports = {
             filename: '[name].css'
         }),
         new ModuleFederationPlugin({
-            name: 'menu',
+            name: 'contact',
             filename: 'remoteEntry.js',
-            remotes: {
-                contact: 'contact@http://localhost:8082/remoteEntry.js',
-                food: 'food@http://localhost:8080/remoteEntry.js',
+            remotes: {},
+            exposes: {
+                './ContactForm': './src/components/Form'
             },
-            exposes: {},
             shared: require('./package.json').dependencies,
         }),
         new HtmlWebpackPlugin({
@@ -90,6 +89,6 @@ module.exports = {
     devtool: prod ? false : 'source-map',
     devServer: {
         hot: true,
-        port: 8081
+        port: 8082
     }
 };
