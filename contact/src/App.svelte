@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Form from "./components/Form.svelte";
+	import Social from "./components/Social.svelte";
 
 	let name = "";
 </script>
@@ -16,5 +17,9 @@
 	</h3>
 
 	<Form bind:name/>
+
+	<Social>
+		example@example.com
+	</Social>
 </div>
 

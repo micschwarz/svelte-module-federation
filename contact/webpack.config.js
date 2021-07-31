@@ -78,7 +78,8 @@ module.exports = {
             filename: 'remoteEntry.js',
             remotes: {},
             exposes: {
-                './ContactForm': './src/components/Form'
+                './ContactForm': './src/components/Form',
+                './Social': './src/components/Social'
             },
             shared: require('./package.json').dependencies,
         }),
